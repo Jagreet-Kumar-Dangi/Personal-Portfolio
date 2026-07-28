@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/jack/HeroSection";
 import { MarqueeSection } from "@/components/jack/MarqueeSection";
 import { AboutSection } from "@/components/jack/AboutSection";
-import { ServicesSection } from "@/components/jack/ServicesSection";
+import { ExperienceSection } from "@/components/jack/ExperienceSection";
 import { ProjectsSection } from "@/components/jack/ProjectsSection";
 import { SkillsSection } from "@/components/jack/SkillsSection";
 import { FooterSection } from "@/components/jack/FooterSection";
@@ -11,22 +11,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Amine Hamzaoui | Computer Science Student & Software Developer",
+        title: "Jagreet Dangi | AI & ML Engineer | Full Stack Developer",
       },
       {
         name: "description",
         content:
-          "Amine Hamzaoui — Computer Science student at USTHB and software developer building practical, modern applications.",
+          "Jagreet Dangi — AI & Machine Learning Engineer and Full Stack Developer building practical, modern applications.",
       },
       {
         property: "og:title",
-        content:
-          "Amine Hamzaoui | Computer Science Student & Software Developer",
+        content: "Jagreet Dangi | AI & ML Engineer | Full Stack Developer",
       },
       {
         property: "og:description",
         content:
-          "Amine Hamzaoui — Computer Science student at USTHB and software developer building practical, modern applications.",
+          "Jagreet Dangi — AI & Machine Learning Engineer and Full Stack Developer building practical, modern applications.",
       },
     ],
 
@@ -44,12 +43,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main style={{ background: "#0C0C0C", overflowX: "clip" }}>
+    <main style={{ background: "transparent", overflowX: "clip" }}>
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
       <SkillsSection />
-      <ServicesSection />
+      <ExperienceSection />
       <ProjectsSection />
       <FooterSection />
     </main>

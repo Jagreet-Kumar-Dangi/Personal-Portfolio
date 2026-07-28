@@ -1,11 +1,13 @@
 export function ContactButton({
-  href = "mailto:aminehamzaoui1925@gmail.com",
+  href = "https://github.com/jagreetdangi",
 }: {
   href?: string;
 }) {
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="
         inline-flex items-center justify-center
         rounded-full
@@ -18,18 +20,18 @@ export function ContactButton({
         active:scale-95
       "
       style={{
-        background: "rgba(255,255,255,0.06)",
-        border: "1px solid rgba(255,255,255,0.15)",
+        background: "rgba(245, 158, 75, 0.12)",
+        border: "1px solid rgba(245, 158, 75, 0.25)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         boxShadow: `
-          0 0 20px rgba(168, 85, 247, 0.35),
-          0 0 40px rgba(236, 72, 153, 0.20),
+          0 0 20px rgba(232, 120, 42, 0.35),
+          0 0 40px rgba(245, 158, 75, 0.2),
           inset 0 1px 1px rgba(255,255,255,0.12)
         `,
       }}
     >
-      Contact Me
+      GitHub
     </a>
   );
 }

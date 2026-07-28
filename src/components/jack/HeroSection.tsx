@@ -1,15 +1,7 @@
 import { FadeIn } from "./FadeIn";
-import { Magnet } from "./Magnet";
 import { ContactButton } from "./ContactButton";
-import aminePortrait from "@/assets/amine.png";
 
-const NAV_LINKS = [
-  "About",
-  "Skills",
-  "Services",
-  "Projects",
-  "Contact",
-];
+const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
 export function HeroSection() {
   return (
@@ -29,7 +21,7 @@ export function HeroSection() {
             key={link}
             href={`#${link.toLowerCase()}`}
             className="
-              text-[#D7E2EA]
+              text-[#f5a960]
               font-medium
               uppercase
               tracking-wider
@@ -52,6 +44,7 @@ export function HeroSection() {
             className="
               hero-heading
               font-black
+              italic
               uppercase
               tracking-tight
               leading-none
@@ -63,7 +56,7 @@ export function HeroSection() {
               lg:text-[17.5vw]
             "
           >
-            Hi, i&apos;m amine
+            JAGREET DANGI
           </h1>
         </FadeIn>
       </div>
@@ -87,63 +80,28 @@ export function HeroSection() {
         <FadeIn delay={0.35} y={20}>
           <p
             className="
-              text-[#D7E2EA]
+              text-[#f5a960]
               font-light
               uppercase
               tracking-wide
               leading-snug
-              max-w-[160px]
-              sm:max-w-[220px]
-              md:max-w-[260px]
+              max-w-[260px]
+              sm:max-w-[340px]
+              md:max-w-[420px]
             "
             style={{
               fontSize: "clamp(0.75rem, 1.4vw, 1.5rem)",
             }}
           >
-            computer science student & software developer
-            building practical, modern applications
+            Artificial Intelligence &amp; Machine Learning Engineer | Full Stack
+            Developer
           </p>
         </FadeIn>
 
         <FadeIn delay={0.5} y={20}>
-          <ContactButton />
+          <ContactButton href="https://github.com/jagreetdangi" />
         </FadeIn>
       </div>
-
-      {/* Portrait */}
-      <FadeIn
-        delay={0.6}
-        y={30}
-        className="
-          absolute
-          left-1/2
-          -translate-x-1/2
-          z-10
-          top-1/2
-          -translate-y-1/2
-          sm:top-auto
-          sm:translate-y-0
-          sm:bottom-0
-          w-[280px]
-          sm:w-[360px]
-          md:w-[440px]
-          lg:w-[520px]
-        "
-      >
-        <Magnet
-          padding={150}
-          strength={3}
-          activeTransition="transform 0.3s ease-out"
-          inactiveTransition="transform 0.6s ease-in-out"
-        >
-          <img
-            src={aminePortrait}
-            alt="Amine Hamzaoui portrait"
-            className="w-full h-auto select-none pointer-events-none"
-            draggable={false}
-          />
-        </Magnet>
-      </FadeIn>
     </section>
   );
 }

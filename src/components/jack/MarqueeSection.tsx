@@ -69,7 +69,7 @@ export function MarqueeSection() {
     <section
       ref={sectionRef}
       className="pt-24 sm:pt-32 md:pt-40 pb-10 flex flex-col gap-3"
-      style={{ background: "#0C0C0C", overflowX: "clip" }}
+      style={{ background: "transparent", overflowX: "clip" }}
     >
       <div style={{ transform: `translateX(${x1}px)`, willChange: "transform" }}>
         <Row images={ROW1} direction="right" />

@@ -3,17 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FadeIn } from "./FadeIn";
 import { LiveProjectButton } from "./LiveProjectButton";
 
-import projectReact from "@/assets/cp.png";
-import projectPersonal from "@/assets/project-personal.jpg";
-import projectShowcase from "@/assets/game.png";
-import projectResponsive from "@/assets/prot.png";
-import projectJsonDb from "@/assets/logo.jpg";
-
 interface Project {
   n: string;
   category: string;
   name: string;
-  image: string;
+  description: string;
   link: string;
 }
 
@@ -21,37 +15,26 @@ const PROJECTS: Project[] = [
   {
     n: "01",
     category: "Web",
-    name: "Modern React Portfolio",
-    image: projectReact,
-    link: "https://github.com/Saboo24/Portfolio13.git",
+    name: "CineAura",
+    description:
+      "A responsive movie discovery web application featuring movie search and an intuitive UI. Built with React, TypeScript, Vite, Tailwind CSS, integrated with the OMDb API, and hosted on Firebase.",
+    link: "https://github.com/jagreetdangi",
   },
   {
     n: "02",
-    category: "Web",
-    name: "Personal Portfolio Website",
-    image: projectPersonal,
-    link: "https://github.com/Saboo24/Portfolio12.git",
+    category: "Embedded / Hardware",
+    name: "Underground Wire Fault Detection",
+    description:
+      "An embedded hardware and simulation project exploring techniques for detecting underground cable faults using the Resistance Method and Time Domain Reflectometry (TDR). Built using Arduino and simulated in Proteus. The implementation features custom threshold logic where an A0 analog reading between 600 to 1022 accurately identifies a fault at 15cm.",
+    link: "https://github.com/jagreetdangi",
   },
   {
     n: "03",
     category: "Web",
-    name: "Developer Portfolio Showcase",
-    image: projectShowcase,
-    link: "https://github.com/Saboo24/Portfolio11.git",
-  },
-  {
-    n: "04",
-    category: "Web",
-    name: "Responsive Portfolio Experience",
-    image: projectResponsive,
-    link: "https://github.com/Saboo24/Portfolio12.git",
-  },
-  {
-    n: "05",
-    category: "Software",
-    name: "Mini JSON Database",
-    image: projectJsonDb,
-    link: "https://github.com/Saboo24/MiniJSONDatabase.git",
+    name: "Disaster Management Website",
+    description:
+      "A web application focused on disaster awareness and information management. Built with HTML, CSS, JavaScript, and Firebase.",
+    link: "https://github.com/jagreetdangi",
   },
 ];
 
@@ -68,11 +51,7 @@ function ProjectCard({
 }) {
   const targetScale = 1 - (total - 1 - index) * 0.03;
 
-  const scale = useTransform(
-    progress,
-    [index / total, 1],
-    [1, targetScale]
-  );
+  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   return (
     <div
@@ -83,13 +62,14 @@ function ProjectCard({
         style={{ scale }}
         className="
           rounded-[40px] sm:rounded-[50px] md:rounded-[60px]
-          border border-white/10
-          bg-[#0C0C0C]/95
+          border border-orange-500/10
+          bg-[#0a0a0a]/90
           backdrop-blur-xl
-          p-4 sm:p-6 md:p-8
-          shadow-[0_0_60px_rgba(255,255,255,0.03)]
+          p-6 sm:p-8 md:p-10
+          shadow-[0_0_60px_rgba(232,120,42,0.05)]
           transition-all duration-300
-          hover:border-white/20
+          hover:border-orange-500/20
+          hover:shadow-[0_0_80px_rgba(232,120,42,0.1)]
         "
       >
         {/* Header */}
@@ -106,7 +86,7 @@ function ProjectCard({
             </div>
 
             <div className="flex flex-col gap-1">
-              <span className="text-white/50 uppercase tracking-[0.25em] text-xs sm:text-sm">
+              <span className="text-[#f5a960]/60 uppercase tracking-[0.25em] text-xs sm:text-sm">
                 {project.category}
               </span>
 
@@ -124,62 +104,23 @@ function ProjectCard({
           <LiveProjectButton href={project.link} />
         </div>
 
-        {/* Images */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {/* Left */}
-          <div className="md:col-span-2 flex flex-col gap-4">
-            <img
-              src={project.image}
-              alt={project.name}
-              loading="lazy"
-              className="
-                w-full object-cover
-                rounded-[30px]
-                border border-white/10
-                hover:scale-[1.02]
-                transition-all duration-300
-              "
-              style={{
-                height: "clamp(140px,18vw,240px)",
-              }}
-            />
-
-            <img
-              src={project.image}
-              alt={project.name}
-              loading="lazy"
-              className="
-                w-full object-cover
-                rounded-[30px]
-                border border-white/10
-                hover:scale-[1.02]
-                transition-all duration-300
-              "
-              style={{
-                height: "clamp(180px,24vw,320px)",
-              }}
-            />
-          </div>
-
-          {/* Main Image */}
-          <div className="md:col-span-3">
-            <img
-              src={project.image}
-              alt={project.name}
-              loading="lazy"
-              className="
-                w-full h-full object-cover
-                rounded-[35px] md:rounded-[45px]
-                border border-white/10
-                hover:scale-[1.01]
-                transition-all duration-300
-              "
-              style={{
-                minHeight: "100%",
-              }}
-            />
-          </div>
+        {/* Description */}
+        <div className="px-2 sm:px-4">
+          <p
+            className="text-[#e8d5c4]/70 font-light leading-relaxed max-w-3xl"
+            style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.15rem)" }}
+          >
+            {project.description}
+          </p>
         </div>
+
+        {project.n === "02" && (
+          <div className="mt-6 px-2 sm:px-4">
+            <span className="text-[#f5a960]/50 text-xs uppercase tracking-[0.2em]">
+              Collaborators: Pragati, Sanchayeeta Rout, Soumya Ray
+            </span>
+          </div>
+        )}
       </motion.div>
     </div>
   );
@@ -194,18 +135,16 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="projects"
+    <section
+      id="projects"
       ref={containerRef}
       className="
         px-5 sm:px-8 md:px-10
         py-20 sm:py-24 md:py-32
-        bg-[#0C0C0C]
+        bg-transparent
       "
     >
-      <FadeIn
-        y={40}
-        className="text-center mb-16 sm:mb-20 md:mb-28"
-      >
+      <FadeIn y={40} className="text-center mb-16 sm:mb-20 md:mb-28">
         <h2
           className="
             hero-heading
@@ -225,10 +164,7 @@ export function ProjectsSection() {
 
       <div className="max-w-7xl mx-auto">
         {PROJECTS.map((project, index) => (
-          <div
-            key={project.n}
-            className="h-[85vh]"
-          >
+          <div key={project.n} className="h-[70vh]">
             <ProjectCard
               project={project}
               index={index}

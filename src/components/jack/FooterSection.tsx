@@ -1,14 +1,9 @@
 import { FadeIn } from "./FadeIn";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export function FooterSection() {
   return (
-    <footer className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 pt-24 pb-10" id ="contact">
+    <footer className="px-5 sm:px-8 md:px-10 pt-24 pb-10" id="contact">
       <div className="max-w-7xl mx-auto">
         {/* CTA */}
         <FadeIn y={40}>
@@ -36,7 +31,9 @@ export function FooterSection() {
         <FadeIn delay={0.2} y={30}>
           <div className="flex justify-center mt-12">
             <a
-              href="mailto:aminehamzaoui1925@gmail.com"
+              href="https://github.com/jagreetdangi"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 px-10 py-5
                 rounded-full
@@ -49,7 +46,7 @@ export function FooterSection() {
                 font-medium
                 transition-all duration-300
                 hover:bg-white/[0.08]
-                hover:border-white/20
+                hover:border-orange-500/30
                 hover:-translate-y-1
               "
             >
@@ -58,36 +55,16 @@ export function FooterSection() {
           </div>
         </FadeIn>
 
-        {/* Email */}
-        <FadeIn delay={0.3} y={20}>
-          <div className="mt-14 flex justify-center">
-            <a
-              href="mailto:aminehamzaoui1925@gmail.com"
-              className="
-                flex items-center gap-3
-                text-white/70
-                hover:text-white
-                transition-all
-              "
-            >
-              <FaEnvelope size={20} />
-              <span className="text-lg">
-                aminehamzaoui1925@gmail.com
-              </span>
-            </a>
-          </div>
-        </FadeIn>
-
         {/* Socials */}
         <FadeIn delay={0.4} y={20}>
           <div className="flex justify-center gap-8 mt-12">
             <a
-              href="https://github.com/Saboo24"
+              href="https://github.com/jagreetdangi"
               target="_blank"
               rel="noreferrer"
               className="
                 text-white/60
-                hover:text-white
+                hover:text-[#f5a960]
                 hover:scale-110
                 transition-all duration-300
               "
@@ -96,7 +73,7 @@ export function FooterSection() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/jagreetdangi"
               target="_blank"
               rel="noreferrer"
               className="
@@ -110,32 +87,30 @@ export function FooterSection() {
             </a>
 
             <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:jagreetdangi@example.com"
               className="
                 text-white/60
-                hover:text-[#E4405F]
+                hover:text-[#f5a960]
                 hover:scale-110
                 transition-all duration-300
               "
             >
-              <FaInstagram size={30} />
+              <FaEnvelope size={30} />
             </a>
           </div>
         </FadeIn>
 
         {/* Divider */}
-        <div className="h-px bg-white/10 mt-16 mb-8" />
+        <div className="h-px bg-orange-500/20 mt-16 mb-8" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-white/40 text-sm">
-            © 2026 Amine . All rights reserved.
+            &copy; 2026 Jagreet Dangi. All rights reserved.
           </span>
 
           <span className="text-white/40 text-sm uppercase tracking-[0.2em]">
-            Designed & Developed by Amine
+            Designed &amp; Developed by Jagreet Dangi
           </span>
         </div>
       </div>
