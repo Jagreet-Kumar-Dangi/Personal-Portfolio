@@ -31,7 +31,7 @@ export function FooterSection() {
         <FadeIn delay={0.2} y={30}>
           <div className="flex justify-center mt-12">
             <a
-              href="https://github.com/jagreetdangi"
+              href="https://github.com/Jagreet-Kumar-Dangi"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -59,7 +59,7 @@ export function FooterSection() {
         <FadeIn delay={0.4} y={20}>
           <div className="flex justify-center gap-8 mt-12">
             <a
-              href="https://github.com/jagreetdangi"
+              href="https://github.com/Jagreet-Kumar-Dangi"
               target="_blank"
               rel="noreferrer"
               className="
@@ -73,7 +73,7 @@ export function FooterSection() {
             </a>
 
             <a
-              href="https://linkedin.com/in/jagreetdangi"
+              href="https://www.linkedin.com/in/jagreet-kumar-dangi"
               target="_blank"
               rel="noreferrer"
               className="
@@ -87,7 +87,7 @@ export function FooterSection() {
             </a>
 
             <a
-              href="mailto:jagreetdangi@example.com"
+              href="mailto:jagreetdangi2007@gmail.com"
               className="
                 text-white/60
                 hover:text-[#f5a960]

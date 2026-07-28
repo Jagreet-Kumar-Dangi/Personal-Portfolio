@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
     name: "CineAura",
     description:
       "A responsive movie discovery web application featuring movie search and an intuitive UI. Built with React, TypeScript, Vite, Tailwind CSS, integrated with the OMDb API, and hosted on Firebase.",
-    link: "https://github.com/jagreetdangi",
+    link: "https://github.com/Jagreet-Kumar-Dangi/localdir",
   },
   {
     n: "02",
@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
     name: "Underground Wire Fault Detection",
     description:
       "An embedded hardware and simulation project exploring techniques for detecting underground cable faults using the Resistance Method and Time Domain Reflectometry (TDR). Built using Arduino and simulated in Proteus. The implementation features custom threshold logic where an A0 analog reading between 600 to 1022 accurately identifies a fault at 15cm.",
-    link: "https://github.com/jagreetdangi",
+    link: "https://github.com/Jagreet-Kumar-Dangi",
   },
   {
     n: "03",
@@ -34,7 +34,7 @@ const PROJECTS: Project[] = [
     name: "Disaster Management Website",
     description:
       "A web application focused on disaster awareness and information management. Built with HTML, CSS, JavaScript, and Firebase.",
-    link: "https://github.com/jagreetdangi",
+    link: "https://github.com/Jagreet-Kumar-Dangi",
   },
 ];
 

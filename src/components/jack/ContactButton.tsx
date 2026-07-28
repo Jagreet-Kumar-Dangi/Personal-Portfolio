@@ -1,5 +1,5 @@
 export function ContactButton({
-  href = "https://github.com/jagreetdangi",
+  href = "https://github.com/Jagreet-Kumar-Dangi",
 }: {
   href?: string;
 }) {
