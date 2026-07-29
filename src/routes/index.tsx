@@ -7,6 +7,7 @@ import { ProjectsSection } from "@/components/jack/ProjectsSection";
 import { CertificatesSection } from "@/components/jack/CertificatesSection";
 import { SkillsSection } from "@/components/jack/SkillsSection";
 import { FooterSection } from "@/components/jack/FooterSection";
+import { FeedbackPopup } from "@/components/jack/FeedbackPopup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,6 +54,7 @@ function Index() {
       <ProjectsSection />
       <CertificatesSection />
       <FooterSection />
+      <FeedbackPopup />
     </main>
   );
 }
