@@ -17,6 +17,7 @@ import "../_libs/re2js.mjs";
 import "../_libs/motion-dom.mjs";
 import "../_libs/motion-utils.mjs";
 import "../_libs/idb.mjs";
+const profileImage = "/assets/jagreet-profile-Bn5ad2LV.jpg";
 function FadeIn({
   children,
   as = "div",
@@ -158,7 +159,7 @@ function HeroSection() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex justify-center items-center w-full my-8 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnet, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           "img",
           {
-            src: "/src/assets/jagreet-profile.jpg",
+            src: profileImage,
             alt: "Jagreet Dangi",
             className: "w-64 h-80 md:w-72 md:h-96 object-cover object-top rounded-3xl shadow-2xl"
           }

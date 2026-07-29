@@ -1,7 +1,7 @@
 import { p as parseHref } from "./tanstack__history.mjs";
 import { s as splitSetCookieString } from "./cookie-es.mjs";
-import { a as ai, r as re, p as pn, y as yn } from "./seroval.mjs";
-import { l } from "./seroval-plugins.mjs";
+import { c as createPlugin, a as createStream, b as crossSerializeStream, g as getCrossReferenceHeader } from "./seroval.mjs";
+import { R as ReadableStreamPlugin } from "./seroval-plugins.mjs";
 import { ReadableStream as ReadableStream$1 } from "node:stream/web";
 import { Readable } from "node:stream";
 const isServer = true;
@@ -42,7 +42,7 @@ function deepEqual(a, b, opts) {
   if (typeof a !== typeof b) return false;
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length !== b.length) return false;
-    for (let i = 0, l2 = a.length; i < l2; i++) if (!deepEqual(a[i], b[i], opts)) return false;
+    for (let i = 0, l = a.length; i < l; i++) if (!deepEqual(a[i], b[i], opts)) return false;
     return true;
   }
   if (isPlainObject(a) && isPlainObject(b)) {
@@ -146,13 +146,13 @@ function decodePath(path) {
     path,
     handledProtocolRelativeURL: false
   };
-  const re2 = /%25|%5C/gi;
+  const re = /%25|%5C/gi;
   let cursor = 0;
   let result = "";
   let match;
-  while (null !== (match = re2.exec(path))) {
+  while (null !== (match = re.exec(path))) {
     result += decodeSegment(path.slice(cursor, match.index)) + match[0];
-    cursor = re2.lastIndex;
+    cursor = re.lastIndex;
   }
   result = result + decodeSegment(cursor ? path.slice(cursor) : path);
   let handledProtocolRelativeURL = false;
@@ -3265,7 +3265,7 @@ function createSerializationAdapter(opts) {
 }
 // @__NO_SIDE_EFFECTS__
 function makeSsrSerovalPlugin(serializationAdapter, options) {
-  return /* @__PURE__ */ ai({
+  return /* @__PURE__ */ createPlugin({
     tag: "$TSR/t/" + serializationAdapter.key,
     test: serializationAdapter.test,
     parse: { stream(value, ctx, _data) {
@@ -3280,7 +3280,7 @@ function makeSsrSerovalPlugin(serializationAdapter, options) {
 }
 // @__NO_SIDE_EFFECTS__
 function makeSerovalPlugin(serializationAdapter) {
-  return /* @__PURE__ */ ai({
+  return /* @__PURE__ */ createPlugin({
     tag: "$TSR/t/" + serializationAdapter.key,
     test: serializationAdapter.test,
     parse: {
@@ -3377,7 +3377,7 @@ const RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT = (stream) => {
 const FACTORY_BINARY = `(s=>new ReadableStream({start(c){s.on({next(b){try{const d=atob(b),a=new Uint8Array(d.length);for(let i=0;i<d.length;i++)a[i]=d.charCodeAt(i);c.enqueue(a)}catch(_){}},throw(e){c.error(e)},return(){try{c.close()}catch(_){}}})}}))`;
 const FACTORY_TEXT = `(s=>{const e=new TextEncoder();return new ReadableStream({start(c){s.on({next(v){try{if(typeof v==='string'){c.enqueue(e.encode(v))}else{const d=atob(v.$b64),a=new Uint8Array(d.length);for(let i=0;i<d.length;i++)a[i]=d.charCodeAt(i);c.enqueue(a)}}catch(_){}},throw(x){c.error(x)},return(){try{c.close()}catch(_){}}})}})})`;
 function toBinaryStream(readable) {
-  const stream = re();
+  const stream = createStream();
   const reader = readable.getReader();
   (async () => {
     try {
@@ -3398,7 +3398,7 @@ function toBinaryStream(readable) {
   return stream;
 }
 function toTextStream(readable) {
-  const stream = re();
+  const stream = createStream();
   const reader = readable.getReader();
   const decoder = new TextDecoder("utf-8", { fatal: true });
   (async () => {
@@ -3429,9 +3429,9 @@ function toTextStream(readable) {
   })();
   return stream;
 }
-const RawStreamSSRPlugin = /* @__PURE__ */ ai({
+const RawStreamSSRPlugin = /* @__PURE__ */ createPlugin({
   tag: "tss/RawStream",
-  extends: [/* @__PURE__ */ ai({
+  extends: [/* @__PURE__ */ createPlugin({
     tag: "tss/RawStreamFactory",
     test(value) {
       return value === RAW_STREAM_FACTORY_BINARY;
@@ -3453,7 +3453,7 @@ const RawStreamSSRPlugin = /* @__PURE__ */ ai({
     deserialize(_node, _ctx, _data) {
       return RAW_STREAM_FACTORY_BINARY;
     }
-  }), /* @__PURE__ */ ai({
+  }), /* @__PURE__ */ createPlugin({
     tag: "tss/RawStreamFactoryText",
     test(value) {
       return value === RAW_STREAM_FACTORY_TEXT;
@@ -3485,7 +3485,7 @@ const RawStreamSSRPlugin = /* @__PURE__ */ ai({
       return {
         hint: ctx.parse(value.hint),
         factory: ctx.parse(factory),
-        stream: ctx.parse(re())
+        stream: ctx.parse(createStream())
       };
     },
     async async(value, ctx, _data) {
@@ -3518,7 +3518,7 @@ const RawStreamSSRPlugin = /* @__PURE__ */ ai({
 // @__NO_SIDE_EFFECTS__
 function createRawStreamRPCPlugin(onRawStream) {
   let nextStreamId = 1;
-  return /* @__PURE__ */ ai({
+  return /* @__PURE__ */ createPlugin({
     tag: "tss/RawStream",
     test(value) {
       return value instanceof RawStream;
@@ -3543,7 +3543,7 @@ function createRawStreamRPCPlugin(onRawStream) {
     }
   });
 }
-const ShallowErrorPlugin = /* @__PURE__ */ ai({
+const ShallowErrorPlugin = /* @__PURE__ */ createPlugin({
   tag: "$TSR/Error",
   test(value) {
     return value instanceof Error;
@@ -3569,7 +3569,7 @@ const ShallowErrorPlugin = /* @__PURE__ */ ai({
 const defaultSerovalPlugins = [
   ShallowErrorPlugin,
   RawStreamSSRPlugin,
-  l
+  ReadableStreamPlugin
 ];
 function toHeadersInstance(init) {
   if (init instanceof Headers) return init;
@@ -3609,7 +3609,7 @@ function dehydrateMatch(match) {
   if (match.globalNotFound) dehydratedMatch.g = true;
   return dehydratedMatch;
 }
-const INITIAL_SCRIPTS = [yn(SCOPE_ID), tsrScript_default];
+const INITIAL_SCRIPTS = [getCrossReferenceHeader(SCOPE_ID), tsrScript_default];
 var ScriptBuffer = class {
   constructor(injectScript) {
     this._scriptBarrierLifted = false;
@@ -3841,8 +3841,8 @@ function attachRouterServerSsrUtils({ router, manifest, getRequestAssets }) {
   let injectedHtmlBuffer = "";
   const callListeners = (listeners, errorPrefix) => {
     const snapshot = listeners.slice();
-    for (const l2 of snapshot) try {
-      l2();
+    for (const l of snapshot) try {
+      l();
     } catch (err) {
       console.error(`${errorPrefix}:`, err);
     }
@@ -3909,8 +3909,8 @@ function attachRouterServerSsrUtils({ router, manifest, getRequestAssets }) {
         _serializationFinished = true;
         const listeners = serializationFinishedListeners.slice();
         serializationFinishedListeners.length = 0;
-        for (const l2 of listeners) try {
-          l2();
+        for (const l of listeners) try {
+          l();
         } catch (err) {
           console.error("Serialization listener error:", err);
         }
@@ -3921,7 +3921,7 @@ function attachRouterServerSsrUtils({ router, manifest, getRequestAssets }) {
         scriptBuffer.flush();
         signalSerializationComplete();
       };
-      pn(dehydratedRouter, {
+      crossSerializeStream(dehydratedRouter, {
         refs: /* @__PURE__ */ new Map(),
         plugins,
         onSerialize: (data, initial) => {
@@ -3987,8 +3987,8 @@ function attachRouterServerSsrUtils({ router, manifest, getRequestAssets }) {
       scriptBuffer.liftBarrier();
       const listeners = renderFinishedListeners.slice();
       renderFinishedListeners.length = 0;
-      for (const l2 of listeners) try {
-        l2();
+      for (const l of listeners) try {
+        l();
       } catch (err) {
         console.error("Error in render finished listener:", err);
       }
@@ -4021,8 +4021,8 @@ function attachRouterServerSsrUtils({ router, manifest, getRequestAssets }) {
       cleanupStarted = true;
       const listeners = cleanupListeners.slice();
       cleanupListeners.length = 0;
-      for (const l2 of listeners) try {
-        l2();
+      for (const l of listeners) try {
+        l();
       } catch (err) {
         console.error("Error in SSR cleanup listener:", err);
       }

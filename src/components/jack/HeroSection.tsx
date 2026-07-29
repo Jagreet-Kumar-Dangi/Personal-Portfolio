@@ -1,3 +1,4 @@
+import profileImage from "../../assets/jagreet-profile.jpg";
 import { FadeIn } from "./FadeIn";
 import { Magnet } from "./Magnet";
 import { ContactButton } from "./ContactButton";
@@ -72,7 +73,7 @@ export function HeroSection() {
       <div className="relative flex justify-center items-center w-full my-8 z-10">
         <Magnet>
           <img
-            src="/src/assets/jagreet-profile.jpg"
+            src={profileImage}
             alt="Jagreet Dangi"
             className="w-64 h-80 md:w-72 md:h-96 object-cover object-top rounded-3xl shadow-2xl"
           />

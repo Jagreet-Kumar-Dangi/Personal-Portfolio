@@ -2,7 +2,7 @@ import process from "node:process";
 import { AsyncLocalStorage } from "node:async_hooks";
 import { H as H3Event, t as toResponse } from "../_libs/h3-v2.mjs";
 import { y as defineHandlerCallback, z as resolveManifestAssetLink, u as resolveManifestCssLink, k as rootRouteId, A as getNormalizedURL, C as getOrigin, D as normalizeSsrResponse, E as attachRouterServerSsrUtils, F as createSerializationAdapter, G as createRawStreamRPCPlugin, i as invariant, g as isNotFound, m as isRedirect, H as isResolvedRedirect, I as replaceSsrResponse, J as mergeHeaders, K as executeRewriteInput, L as stripSsrResponseBody, M as defaultSerovalPlugins, N as makeSerovalPlugin, s as getScriptPreloadAttrs, O as getStylesheetHref, P as isSsrResponse } from "../_libs/tanstack__router-core.mjs";
-import { c as cu, O as Ou, l as lu } from "../_libs/seroval.mjs";
+import { t as toCrossJSONStream, f as fromJSON, d as toCrossJSONAsync } from "../_libs/seroval.mjs";
 import { c as createMemoryHistory } from "../_libs/tanstack__history.mjs";
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { r as renderRouterToStream, R as RouterProvider } from "../_libs/tanstack__react-router.mjs";
@@ -85,7 +85,7 @@ function getResponse() {
 }
 var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 async function getStartManifest(matchedRoutes) {
-  const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-Dj4Nc7AV.mjs");
+  const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-CX1--arh.mjs");
   const startManifest = tsrStartManifest();
   let routes = startManifest.routes;
   routes[rootRouteId];
@@ -411,7 +411,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
   if (!serovalPlugins) serovalPlugins = getDefaultSerovalPlugins();
   const contentType = request.headers.get("Content-Type");
   function parsePayload(payload) {
-    return Ou(payload, { plugins: serovalPlugins });
+    return fromJSON(payload, { plugins: serovalPlugins });
   }
   return await (async () => {
     try {
@@ -454,7 +454,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
               throw error;
             }
           };
-          cu(res2, {
+          toCrossJSONStream(res2, {
             refs: /* @__PURE__ */ new Map(),
             plugins,
             onParse(value) {
@@ -542,7 +542,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
             method: methodUpper
           };
           if (typeof serializedContext === "string") try {
-            const deserializedContext = Ou(JSON.parse(serializedContext), { plugins: serovalPlugins });
+            const deserializedContext = fromJSON(JSON.parse(serializedContext), { plugins: serovalPlugins });
             if (typeof deserializedContext === "object" && deserializedContext) params.context = safeObjectMerge(deserializedContext, context);
           } catch (e) {
             if (false) ;
@@ -581,7 +581,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
       console.info();
       console.error(error);
       console.info();
-      const serializedError = JSON.stringify(await Promise.resolve(lu(error, {
+      const serializedError = JSON.stringify(await Promise.resolve(toCrossJSONAsync(error, {
         refs: /* @__PURE__ */ new Map(),
         plugins: serovalPlugins
       })));
@@ -1162,8 +1162,8 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-    import("./router-CbA3T2T3.mjs"),
-    import("./start-ByIHHuP0.mjs"),
+    import("./router-D6k6_Yxo.mjs"),
+    import("./start-Dg8roNU8.mjs"),
     import("./empty-plugin-adapters-BFgPZ6_d.mjs")
   ]);
   return {
