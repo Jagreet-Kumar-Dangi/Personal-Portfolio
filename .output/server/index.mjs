@@ -31,40 +31,33 @@ const services = {
 };
 globalThis.__nitro_vite_envs__ = services;
 const assets = {
-  "/assets/styles-DkQoEduf.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": '"17012-9G0aUnmYo6PEAUxWmTu8xnS8PHo"',
-    "mtime": "2026-07-29T13:13:17.396Z",
-    "size": 94226,
-    "path": "../public/assets/styles-DkQoEduf.css"
-  },
-  "/assets/index-B88zFpn5.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": '"55632-OmY+KwnO6j2ywaDGlPWp4uIWBAo"',
-    "mtime": "2026-07-29T13:13:17.396Z",
-    "size": 349746,
-    "path": "../public/assets/index-B88zFpn5.js"
+  "/assets/deloittecyber-Dv5RKa3W.pdf": {
+    "type": "application/pdf",
+    "etag": '"1e078-CoJrjGSHa6CTNaxt2JpPZcdRILA"',
+    "mtime": "2026-07-29T17:28:17.239Z",
+    "size": 123e3,
+    "path": "../public/assets/deloittecyber-Dv5RKa3W.pdf"
   },
   "/assets/deloittetechnology-Cae7DsEy.pdf": {
     "type": "application/pdf",
     "etag": '"1e0cf-QGQn+Uy1gGkJZIPJxCZFHq69wNM"',
-    "mtime": "2026-07-29T13:13:17.394Z",
+    "mtime": "2026-07-29T17:28:17.239Z",
     "size": 123087,
     "path": "../public/assets/deloittetechnology-Cae7DsEy.pdf"
   },
-  "/assets/microsoftaiskill-C_4RWZ6k.pdf": {
+  "/assets/deloittedata-DEIMQfyX.pdf": {
     "type": "application/pdf",
-    "etag": '"27c91-8SYXVBbjWwywnCRJHkrTyfdj5Sc"',
-    "mtime": "2026-07-29T13:13:17.394Z",
-    "size": 162961,
-    "path": "../public/assets/microsoftaiskill-C_4RWZ6k.pdf"
+    "etag": '"1e100-YkY8oNCYyJchzQpkcrbXxAoNNtM"',
+    "mtime": "2026-07-29T17:28:17.237Z",
+    "size": 123136,
+    "path": "../public/assets/deloittedata-DEIMQfyX.pdf"
   },
-  "/assets/deloittecyber-Dv5RKa3W.pdf": {
-    "type": "application/pdf",
-    "etag": '"1e078-CoJrjGSHa6CTNaxt2JpPZcdRILA"',
-    "mtime": "2026-07-29T13:13:17.393Z",
-    "size": 123e3,
-    "path": "../public/assets/deloittecyber-Dv5RKa3W.pdf"
+  "/assets/styles-DkQoEduf.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": '"17012-9G0aUnmYo6PEAUxWmTu8xnS8PHo"',
+    "mtime": "2026-07-29T17:28:17.242Z",
+    "size": 94226,
+    "path": "../public/assets/styles-DkQoEduf.css"
   },
   "/certificates/agenticai.pdf": {
     "type": "application/pdf",
@@ -73,17 +66,10 @@ const assets = {
     "size": 0,
     "path": "../public/certificates/agenticai.pdf"
   },
-  "/assets/deloittedata-DEIMQfyX.pdf": {
-    "type": "application/pdf",
-    "etag": '"1e100-YkY8oNCYyJchzQpkcrbXxAoNNtM"',
-    "mtime": "2026-07-29T13:13:17.393Z",
-    "size": 123136,
-    "path": "../public/assets/deloittedata-DEIMQfyX.pdf"
-  },
   "/assets/tatagenai-BGtwIYvt.pdf": {
     "type": "application/pdf",
     "etag": '"1c9f7-zQ0952TuecqsC15QS70vjNkTXN0"',
-    "mtime": "2026-07-29T13:13:17.390Z",
+    "mtime": "2026-07-29T17:28:17.239Z",
     "size": 117239,
     "path": "../public/assets/tatagenai-BGtwIYvt.pdf"
   },
@@ -94,6 +80,13 @@ const assets = {
     "size": 0,
     "path": "../public/certificates/aifoundation.pdf"
   },
+  "/assets/index-B88zFpn5.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": '"55632-OmY+KwnO6j2ywaDGlPWp4uIWBAo"',
+    "mtime": "2026-07-29T17:28:17.242Z",
+    "size": 349746,
+    "path": "../public/assets/index-B88zFpn5.js"
+  },
   "/certificates/deloittecyber.pdf": {
     "type": "application/pdf",
     "etag": '"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk"',
@@ -101,12 +94,12 @@ const assets = {
     "size": 0,
     "path": "../public/certificates/deloittecyber.pdf"
   },
-  "/certificates/generativeai.pdf": {
+  "/assets/microsoftaiskill-C_4RWZ6k.pdf": {
     "type": "application/pdf",
-    "etag": '"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk"',
-    "mtime": "2026-07-29T04:15:10.596Z",
-    "size": 0,
-    "path": "../public/certificates/generativeai.pdf"
+    "etag": '"27c91-8SYXVBbjWwywnCRJHkrTyfdj5Sc"',
+    "mtime": "2026-07-29T17:28:17.239Z",
+    "size": 162961,
+    "path": "../public/assets/microsoftaiskill-C_4RWZ6k.pdf"
   },
   "/certificates/deloittedata.pdf": {
     "type": "application/pdf",
@@ -121,6 +114,13 @@ const assets = {
     "mtime": "2026-07-29T04:15:10.595Z",
     "size": 0,
     "path": "../public/certificates/deloittetechnology.pdf"
+  },
+  "/certificates/generativeai.pdf": {
+    "type": "application/pdf",
+    "etag": '"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk"',
+    "mtime": "2026-07-29T04:15:10.596Z",
+    "size": 0,
+    "path": "../public/certificates/generativeai.pdf"
   },
   "/certificates/microsoftaiskill.pdf": {
     "type": "application/pdf",
@@ -139,30 +139,30 @@ const assets = {
   "/assets/agenticai-BrIUt0Z9.pdf": {
     "type": "application/pdf",
     "etag": '"8311b-thJdYIXkOAT6eVNmqEAbyWNmonU"',
-    "mtime": "2026-07-29T13:13:17.396Z",
+    "mtime": "2026-07-29T17:28:17.242Z",
     "size": 536859,
     "path": "../public/assets/agenticai-BrIUt0Z9.pdf"
-  },
-  "/assets/index-DjZCIpB7.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": '"9376b-hdu7ZePgqnjsFxevQs2Bu29RYTE"',
-    "mtime": "2026-07-29T13:13:17.396Z",
-    "size": 604011,
-    "path": "../public/assets/index-DjZCIpB7.js"
-  },
-  "/assets/generativeai-BpZt_k9S.pdf": {
-    "type": "application/pdf",
-    "etag": '"d8022-VlvOkDwyK6KoI2s4MLfyTgW4byk"',
-    "mtime": "2026-07-29T13:13:17.396Z",
-    "size": 884770,
-    "path": "../public/assets/generativeai-BpZt_k9S.pdf"
   },
   "/assets/aifoundation-DD4MoJEo.pdf": {
     "type": "application/pdf",
     "etag": '"8315b-N/D+h8FpuDLk6Gw+3MNbAoAKMd4"',
-    "mtime": "2026-07-29T13:13:17.396Z",
+    "mtime": "2026-07-29T17:28:17.242Z",
     "size": 536923,
     "path": "../public/assets/aifoundation-DD4MoJEo.pdf"
+  },
+  "/assets/generativeai-BpZt_k9S.pdf": {
+    "type": "application/pdf",
+    "etag": '"d8022-VlvOkDwyK6KoI2s4MLfyTgW4byk"',
+    "mtime": "2026-07-29T17:28:17.242Z",
+    "size": 884770,
+    "path": "../public/assets/generativeai-BpZt_k9S.pdf"
+  },
+  "/assets/index-DjZCIpB7.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": '"9376b-hdu7ZePgqnjsFxevQs2Bu29RYTE"',
+    "mtime": "2026-07-29T17:28:17.244Z",
+    "size": 604011,
+    "path": "../public/assets/index-DjZCIpB7.js"
   },
   "/image.png": {
     "type": "image/png",
