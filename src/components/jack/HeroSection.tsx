@@ -2,7 +2,14 @@ import { FadeIn } from "./FadeIn";
 import { Magnet } from "./Magnet";
 import { ContactButton } from "./ContactButton";
 
-const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Contact"];
+const NAV_LINKS = [
+  "About",
+  "Skills",
+  "Experience",
+  "Projects",
+  "Certificates",
+  "Contact",
+];
 
 export function HeroSection() {
   return (

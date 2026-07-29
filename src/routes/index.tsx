@@ -4,6 +4,7 @@ import { MarqueeSection } from "@/components/jack/MarqueeSection";
 import { AboutSection } from "@/components/jack/AboutSection";
 import { ExperienceSection } from "@/components/jack/ExperienceSection";
 import { ProjectsSection } from "@/components/jack/ProjectsSection";
+import { CertificatesSection } from "@/components/jack/CertificatesSection";
 import { SkillsSection } from "@/components/jack/SkillsSection";
 import { FooterSection } from "@/components/jack/FooterSection";
 
@@ -50,6 +51,7 @@ function Index() {
       <SkillsSection />
       <ExperienceSection />
       <ProjectsSection />
+      <CertificatesSection />
       <FooterSection />
     </main>
   );
